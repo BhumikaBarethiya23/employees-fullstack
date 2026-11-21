@@ -242,3 +242,7 @@ http://localhost:8090/notExist
 => frontend handles that and returns the custom 404 page from `employees-ui`
 
 Testing Jenkins Automatic Build using GitHub Webhook.
+
+Testing automatic Jenkins Pipeline trigger.
+
+
