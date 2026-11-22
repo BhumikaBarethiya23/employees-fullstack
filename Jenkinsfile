@@ -26,6 +26,30 @@ pipeline {
             }
         }
 
+        
+stage('Test Credentials') {
+    steps {
+        withCredentials([
+            string(
+                credentialsId: 'demo-secret',
+                variable: 'DEMO_SECRET'
+            )
+        ]) {
+            bat '''
+                @echo off
+
+                if defined DEMO_SECRET (
+                    echo Demo credential injected successfully.
+                ) else (
+                    echo Credential injection failed.
+                    exit /b 1
+                )
+            '''
+        }
+    }
+}
+
+
         stage('Build and Test') {
             steps {
                 bat '''
